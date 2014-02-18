@@ -3,7 +3,11 @@ smolder:main.o test.o
 	clang $(LIBS) -lglfw -lGL main.o -o smolder
 
 main.o:main.c
-test.o:test.cpp
+
+testincludes.hpp: ActionEvent.hpp ActionListener.hpp Button.hpp Component.hpp Container.hpp Font.hpp Label.hpp ShaderProgram.hpp TextField.hpp Window.hpp
+
+test.o:test.cpp testincludes.hpp
 
 clean:
 	rm main.o test.o smolder
+# DO NOT DELETE

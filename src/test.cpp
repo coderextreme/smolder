@@ -1,4 +1,5 @@
 #define GLM_FORCE_RADIANS
+#include "testincludes.hpp"
 
 class TestCase {
 	virtual void before() {};
@@ -6,9 +7,6 @@ class TestCase {
 	virtual bool during() { return true;};
 };
 
-#include "ActionEvent.hpp"
-#include "ActionListener.hpp"
-#include "Window.hpp"
 
 class TestGUI : public TestCase, ActionListener {
 private:
@@ -23,16 +21,6 @@ public:
 	virtual void actionPerformed(ActionEvent *a);
 };
 
-#include </opt/local/include/glm/vec3.hpp>
-#include </opt/local/include/glm/vec4.hpp>
-#include </opt/local/include/glm/mat4x4.hpp>
-#include </opt/local/include/glm/gtc/matrix_transform.hpp>
-#include </opt/local/include/glm/gtc/type_ptr.hpp>
-#include "Font.hpp"
-#include "ShaderProgram.hpp"
-#include "Button.hpp"
-#include "Label.hpp"
-#include "TextField.hpp"
 
 bool TestGUI::during() {
 	glm::mat4 m;
@@ -57,8 +45,6 @@ bool TestGUI::during() {
 	window->add(tf);
 	return true;
 }
-
-#include <iostream>
 
 void TestGUI::actionPerformed(ActionEvent *ae) {
 	std::cout << ae->getActionCommand() << std::endl;
