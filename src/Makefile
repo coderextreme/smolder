@@ -1,8 +1,9 @@
 LIBS=-L/opt/local/lib -L/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/
+CXX=g++
 smolder:main.o test.o
-	clang $(LIBS) -lglfw -lGL main.o -o smolder
+	$(CXX) $(LIBS) -lglfw -lGL main.o -o smolder
 
-main.o:main.c
+main.o:main.cpp Window.hpp
 
 testincludes.hpp: ActionEvent.hpp ActionListener.hpp Button.hpp Component.hpp Container.hpp Font.hpp Label.hpp ShaderProgram.hpp TextField.hpp Window.hpp
 

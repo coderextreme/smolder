@@ -2,5 +2,6 @@
 
 class Container : public Component {
 public:
-	virtual void add(Component *c);
+	virtual void add(Component *c) {
+	}
 };
