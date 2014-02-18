@@ -5,7 +5,7 @@
 class Button : public Component {
 	std::string text;
 public:
-	Button(std::string text, glm::mat4 m, ShaderProgram * bsp, Font * f) {
+	Button(std::string text, ShaderProgram * bsp, Font * f) {
 		this->text = text;
 	}
 	void addActionListener(ActionListener *al) {
