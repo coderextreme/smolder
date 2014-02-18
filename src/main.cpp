@@ -1,7 +1,7 @@
 #include </opt/local/include/GLFW/glfw3.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "Window.hpp"
+#include "testincludes.hpp"
 
 static void error_callback(int error, const char* description)
 {
@@ -15,7 +15,6 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 int main(void)
 {
     GLFWwindow* window;
-    Window * guiWin = new Window(window);
     glfwSetErrorCallback(error_callback);
     if (!glfwInit())
         exit(EXIT_FAILURE);
@@ -24,7 +23,20 @@ int main(void)
     {
         glfwTerminate();
         exit(EXIT_FAILURE);
+    } else {
+        Window * guiWin = new Window(window);
+        TestGUI *tg = new TestGUI();
+        tg->setWindow(guiWin);
+        tg->before();
+        bool done = tg->during();
+        if (done) {
+	    std::cout << "Succeeded\n";
+        } else {
+	    std::cout << "Failed\n";
+        }
+        tg->after();
     }
+
     glfwMakeContextCurrent(window);
     glfwSetKeyCallback(window, key_callback);
     while (!glfwWindowShouldClose(window))

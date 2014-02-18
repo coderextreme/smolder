@@ -6,7 +6,9 @@
 
 class ActionListener {
 public:
-	virtual void actionPerformed(ActionEvent *al);
+	ActionListener() {};
+	virtual void actionPerformed(ActionEvent *al) {
+	}
 };
 
 #endif

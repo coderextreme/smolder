@@ -1,7 +1,7 @@
 LIBS=-L/opt/local/lib -L/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/
 CXX=g++
 smolder:main.o test.o
-	$(CXX) $(LIBS) -lglfw -lGL main.o -o smolder
+	$(CXX) $(LIBS) -lglfw -lGL main.o test.o -o smolder
 
 main.o:main.cpp Window.hpp
 

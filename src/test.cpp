@@ -1,25 +1,4 @@
-#define GLM_FORCE_RADIANS
 #include "testincludes.hpp"
-
-class TestCase {
-	virtual void before() {};
-	virtual void after() {};
-	virtual bool during() { return true;};
-};
-
-
-class TestGUI : public TestCase, ActionListener {
-private:
-	Window* window;
-public:
-	virtual void before();
-	virtual void setWindow(Window* w) {
-		window = w;
-	}
-	virtual bool during();
-	virtual void after();
-	virtual void actionPerformed(ActionEvent *a);
-};
 
 
 bool TestGUI::during() {
